@@ -54,15 +54,15 @@ digging through encoded project directories.
 
 ## Requirements
 
-- macOS shell environment
+- Linux shell environment
 - Bash 3.2 or newer
 - `jq`
 - Claude Code session data under `~/.claude/projects/`
 
-Install `jq` on macOS:
+Install `jq` on Debian/Ubuntu:
 
 ```bash
-brew install jq
+sudo apt install jq
 ```
 
 ## Quick Start
@@ -149,8 +149,8 @@ Enter indexes to delete (e.g. '1 3 5' or '1-4'; empty to quit): 2 5-7
 - The active-session guard refuses sessions modified less than 10 minutes ago.
 - `delete <uuid-prefix>` refuses if the prefix matches zero or multiple files.
 - The slash command asks for confirmation before calling the deletion script.
-- Linux is not verified because the script currently uses BSD/macOS `stat` and
-  `date` flags.
+- macOS is not verified because the script currently uses GNU `stat` and `date`
+  flags.
 - There is no undo. Deleted files are removed with `rm`.
 
 ## Uninstall

@@ -20,7 +20,7 @@ HERE="$(cd "$(dirname "$0")" && pwd)"
 DEST_SCRIPT="$HOME/.claude/scripts/delete-session.sh"
 DEST_CMD="$HOME/.claude/commands/delete-session.md"
 
-command -v jq >/dev/null || { echo "error: jq is required. Install via 'brew install jq' or your package manager." >&2; exit 1; }
+command -v jq >/dev/null || { echo "error: jq is required. Install via 'sudo apt install jq' or your package manager." >&2; exit 1; }
 
 mkdir -p "$(dirname "$DEST_SCRIPT")" "$(dirname "$DEST_CMD")"
 

@@ -83,9 +83,9 @@ parse_session() {
   uuid=$(basename "$f" .jsonl)
   proj=$(basename "$(dirname "$f")")
   proj_short=$(short_project "$proj")
-  mt=$(stat -f %m "$f" 2>/dev/null)
+  mt=$(stat -c %Y "$f" 2>/dev/null)
   [ -z "$mt" ] && mt=0
-  mt_str=$(date -r "$mt" "+%Y-%m-%d %H:%M" 2>/dev/null)
+  mt_str=$(date -d "@$mt" "+%Y-%m-%d %H:%M" 2>/dev/null)
   size=$(du -h "$f" 2>/dev/null | awk '{print $1}')
   title=$(custom_title "$f")
   last=$(last_prompt "$f")
@@ -186,7 +186,7 @@ cmd_delete() {
   for u in "$@"; do
     local f
     if ! f=$(resolve_uuid "$u"); then failed=$((failed+1)); continue; fi
-    local mt; mt=$(stat -f %m "$f" 2>/dev/null || echo 0)
+    local mt; mt=$(stat -c %Y "$f" 2>/dev/null || echo 0)
     local age=$((now - mt))
     if [ "$age" -lt "$ACTIVE_THRESHOLD_SEC" ]; then
       echo "refuse: $(basename "$f" .jsonl) is active (${age}s ago, < ${ACTIVE_THRESHOLD_SEC}s)" >&2
