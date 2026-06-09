@@ -65,7 +65,7 @@ sudo apt install jq
 克隆仓库并安装脚本和斜杠命令：
 
 ```bash
-git clone https://github.com/ihoooohi/claude-code-session-cleaner.git
+git clone https://github.com/pickledfishpot/claude-code-session-cleaner.git
 cd claude-code-session-cleaner
 ./install.sh
 ```

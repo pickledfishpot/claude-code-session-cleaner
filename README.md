@@ -70,7 +70,7 @@ sudo apt install jq
 Clone the repository and install the script plus slash command:
 
 ```bash
-git clone https://github.com/ihoooohi/claude-code-session-cleaner.git
+git clone https://github.com/pickledfishpot/claude-code-session-cleaner.git
 cd claude-code-session-cleaner
 ./install.sh
 ```
